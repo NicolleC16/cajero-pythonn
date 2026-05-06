@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - main
+      - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+  displayName: 'Instalar Python'
+
+- script: |
+    python --version
+    echo "Pipeline funcionando correctamente"
+  displayName: 'Verificar Python'
